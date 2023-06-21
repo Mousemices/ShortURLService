@@ -15,10 +15,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()
+            ->has(
+                ShortURL::factory()
+                    ->has(
+                        ShortURLDetail::factory()
+                            ->count(25)
+                    )
+                    ->count(5)
+                    ->state(function (array $attributes, User $user) {
+                        return ['user_id' => $user->id];
+                    }),
+                'shortenedUrls'
+            )
+            ->create([
+                'name' => 'user',
+                'email' => 'user@example.com',
+            ]);
 
         User::factory()
             ->count(10)
