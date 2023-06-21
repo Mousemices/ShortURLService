@@ -1,4 +1,4 @@
-# Profe-technical-test
+# ShortURLService
 
 This project is using Laravel 10.13.5 with PHP 8.2.4.
 
@@ -26,6 +26,11 @@ Execute command to generate `APP_KEY`.
 php artisan key:generate
 ```
 
+We seed some fake data
+
+``bash
+php artisan migrate:fresh --seed
+``
 Launch server.
 
 ```bash
