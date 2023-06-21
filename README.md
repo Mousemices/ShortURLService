@@ -28,9 +28,9 @@ php artisan key:generate
 
 We seed some fake data
 
-``bash
+```bash
 php artisan migrate:fresh --seed
-``
+```
 Launch server.
 
 ```bash
