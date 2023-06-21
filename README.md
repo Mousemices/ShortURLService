@@ -35,7 +35,7 @@ php artisan migrate:fresh --seed
 Now you 
 | email      | password|
 | ----------- | -----------|
-| user@example.com.      |  password |
+| user@example.com      |  password |
 
 Launch vite.
 
