@@ -48,3 +48,9 @@ Launch server.
 ```bash
 php artisan serve
 ```
+
+Run the tests by using
+
+```bash
+php artisan test
+```
