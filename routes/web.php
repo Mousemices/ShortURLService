@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ShortURLController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +25,16 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    //Route::get('/short-urls', [ShortURLController::class, 'index'])->name('short-url.index');
+    Route::post('/short-urls/generate', [ShortURLController::class, 'generate'])->name('short-url.generate');
+
+    Route::get('/short-urls', [ShortURLController::class, 'create'])->name('short-url.create');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/s/{shorCode}', [RedirectController::class, 'redirect'])->name('redirect.redirect');
 });
 
 require __DIR__.'/auth.php';
