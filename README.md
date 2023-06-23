@@ -50,7 +50,7 @@ php artisan serve
 ```
 
 Run the tests by using
-
+> Be sure you have ``npm run dev`` and ``php artisan serve`` running.
 ```bash
 php artisan test
 ```
